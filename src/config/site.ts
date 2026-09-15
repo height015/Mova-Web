@@ -11,6 +11,8 @@ export type PublicMarket = {
 const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
 const configuredAppleUrl = process.env.NEXT_PUBLIC_MOVA_IOS_APP_URL || null;
 const configuredGoogleUrl = process.env.NEXT_PUBLIC_MOVA_ANDROID_APP_URL || null;
+const configuredDriverUrl = process.env.NEXT_PUBLIC_MOVA_DRIVER_ONBOARDING_URL || null;
+const configuredCourierUrl = process.env.NEXT_PUBLIC_MOVA_COURIER_ONBOARDING_URL || null;
 
 export const siteConfig = {
   name: "Mova",
@@ -29,6 +31,7 @@ export const siteConfig = {
   markets: [{ code: "NG", country: "Nigeria", currency: "NGN", status: "launching", services: { ride: "enabled", drive: "enabled", deliver: "enabled" } }] satisfies PublicMarket[],
   defaultMarket: "NG",
   appStores: { apple: configuredAppleUrl, google: configuredGoogleUrl },
+  onboarding: { driver: configuredDriverUrl, courier: configuredCourierUrl },
 } as const;
 
 export type NavItem = (typeof siteConfig.nav)[number];
@@ -40,3 +43,6 @@ export function getAppAcquisitionHref() {
 export function getMarket(code = siteConfig.defaultMarket) {
   return siteConfig.markets.find((market) => market.code === code) || siteConfig.markets[0];
 }
+
+export function getDriverAcquisitionHref() { return siteConfig.onboarding.driver || "/help"; }
+export function getCourierAcquisitionHref() { return siteConfig.onboarding.courier || "/help"; }
