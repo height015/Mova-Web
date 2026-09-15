@@ -6,7 +6,7 @@ const groups = [
   { title: "Mova", links: [["About", "/about"], ["Safety", "/safety"], ["Cities", "/cities"]] },
   { title: "Ride", links: [["Ride with Mova", "/ride"], ["Help", "/help"]] },
   { title: "Earn", links: [["Drive", "/drive"], ["Deliver", "/deliver"]] },
-  { title: "Legal", links: [["Privacy (coming soon)", "/legal/privacy"], ["Terms (coming soon)", "/legal/terms"]] },
+  { title: "Legal", links: [["Legal Center", "/legal"], ["Privacy Draft", "/legal/privacy"], ["Terms Draft", "/legal/terms"]] },
 ] as const;
 
 export function Footer() {
