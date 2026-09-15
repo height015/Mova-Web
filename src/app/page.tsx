@@ -9,7 +9,7 @@ import { RideModes } from "@/components/sections/ride-modes";
 import { ActiveMap } from "@/components/sections/active-map";
 import { DriverOpportunity } from "@/components/sections/driver-opportunity";
 import { ViewportStage } from "@/components/ui/viewport-stage";
-import { siteConfig } from "@/config/site";
+import { getAppAcquisitionHref, siteConfig } from "@/config/site";
 
 const benefits = [
   [CurrencyCircleDollar, "Pricing choice", "Choose the ride and pricing experience that works for the moment."],
@@ -22,7 +22,7 @@ export default function Home() {
   const structuredData = { "@context": "https://schema.org", "@type": "Organization", name: "Mova", url: siteConfig.url, description: siteConfig.description };
   return <main id="main-content">
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
-    <section className="hero"><Container className="hero-grid"><div className="hero-copy"><p className="eyebrow">Mobility, made yours</p><h1>Move your <span>way.</span></h1><p className="hero-manifesto">Your ride. Your price. Your choice.</p><p className="hero-description">Request a ride, make an offer, choose a fixed-price trip, or go metered.</p><div className="hero-choices" aria-label="Mova ride pricing choices"><span>Make an offer</span><span>Fixed price</span><span>Metered</span></div><div className="button-row"><Button href="#get-mova" arrow>Get Mova</Button><Button href="#ride-modes" variant="secondary">Explore ride modes</Button></div><div className="hero-proof"><span><MapPinLine size={20} weight="fill" />Launching in Nigeria</span><span><CheckCircle size={20} weight="fill" />Three ways to ride</span><span><ShieldCheck size={20} weight="fill" />Built around choice</span></div></div><HeroVisual /></Container></section>
+    <section className="hero"><Container className="hero-grid"><div className="hero-copy"><p className="eyebrow">Mobility, made yours</p><h1>Move your <span>way.</span></h1><p className="hero-manifesto">Your ride. Your price. Your choice.</p><p className="hero-description">Request a ride, make an offer, choose a fixed-price trip, or go metered.</p><div className="hero-choices" aria-label="Mova ride pricing choices"><span>Make an offer</span><span>Fixed price</span><span>Metered</span></div><div className="button-row"><Button href={getAppAcquisitionHref()} arrow>Get Mova</Button><Button href="#ride-modes" variant="secondary">Explore ride modes</Button></div><div className="hero-proof"><span><MapPinLine size={20} weight="fill" />Launching in Nigeria</span><span><CheckCircle size={20} weight="fill" />Three ways to ride</span><span><ShieldCheck size={20} weight="fill" />Built around choice</span></div></div><HeroVisual /></Container></section>
 
     <RideModes />
 
@@ -44,6 +44,6 @@ export default function Home() {
 
     <section className="section section--white"><Container className="faq-layout"><SectionHeading eyebrow="Questions, answered" title="A few things to know about Mova." copy="Straightforward answers before your first trip." /><Faq /></Container></section>
 
-    <section className="section section--white section--closing"><Container><div className="closing-cta"><p className="eyebrow">Move with Mova</p><h2>Ready to move your way?</h2><p>Your ride. Your price. Your choice.</p><div className="button-row"><Button href="#get-mova" variant="inverse" arrow>Get Mova</Button><Button href="/drive" variant="ghost">Drive with Mova</Button></div></div></Container></section>
+    <section className="section section--white section--closing"><Container><div className="closing-cta"><p className="eyebrow">Move with Mova</p><h2>Ready to move your way?</h2><p>Your ride. Your price. Your choice.</p><div className="button-row"><Button href={getAppAcquisitionHref()} variant="inverse" arrow>Get Mova</Button><Button href="/drive" variant="ghost">Drive with Mova</Button></div></div></Container></section>
   </main>;
 }
