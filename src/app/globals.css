@@ -270,6 +270,24 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width:900px){.public-page-hero{grid-template-columns:1fr;gap:2rem;min-height:0}.public-visual{min-height:290px}.public-content-grid{grid-template-columns:1fr 1fr}.public-steps>div{grid-template-columns:1fr 1fr}}
 @media (max-width:767px){.public-page-hero{margin-bottom:2.5rem}.public-page h1{font-size:36px;line-height:42px}.public-content-grid,.market-page-grid{grid-template-columns:1fr}.public-info-card{min-height:0}.public-steps{padding:1.25rem;margin:2.5rem 0}.public-steps>div{grid-template-columns:1fr 1fr}.public-map-note{display:block}.public-map-note p{margin-top:.5rem}.public-page-actions{display:grid}.public-page-actions .button{width:100%}}
 
+/* Secondary-page peer cards use the same native mobile snap pattern as the homepage. */
+@media (max-width:767px){
+  .public-content-grid,.market-page-grid{
+    display:flex;
+    grid-template-columns:none;
+    gap:1rem;
+    margin-inline:-1rem;
+    padding-inline:1rem 1.5rem;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scroll-padding-inline:1rem;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+  }
+  .public-content-grid::-webkit-scrollbar,.market-page-grid::-webkit-scrollbar{display:none}
+  .public-content-grid .public-info-card,.market-page-grid>*{flex:0 0 87%;width:87%;scroll-snap-align:start}
+}
+
 /* HTML typography tokens: Inter body copy and Jakarta Sans headings/labels. */
 :root{
   --type-body-sm:12px/16px var(--font-inter);
