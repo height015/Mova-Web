@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/container";
 import { getAppAcquisitionHref, getCourierAcquisitionHref, getDriverAcquisitionHref, getMarket, siteConfig } from "@/config/site";
 import { publicPages, type PublicPageContent } from "@/config/public-content";
 
-const routeSlugs = [...Object.keys(publicPages), "cities", "signin"] as const;
+const routeSlugs = [...Object.keys(publicPages), "cities"] as const;
 type RouteSlug = (typeof routeSlugs)[number];
 const routeMeta: Record<RouteSlug, { title: string; description: string }> = {
   ride: { title: "Ride with Mova", description: "Explore Make an Offer, Fixed Price, and Metered Ride choices with Mova." },
@@ -16,7 +16,6 @@ const routeMeta: Record<RouteSlug, { title: string; description: string }> = {
   cities: { title: "Mova Markets", description: "See Mova’s first launch market and public availability context." },
   about: { title: "About Mova", description: "Learn what Mova is and why choice matters." },
   help: { title: "Mova Help", description: "Find public guidance for Ride, Drive, Delivery, Account, and Safety." },
-  signin: { title: "Sign in to Mova", description: "Manage your Mova account through the approved Mova app experience." },
 };
 
 export function generateStaticParams() { return routeSlugs.map((slug) => ({ slug })); }
@@ -39,8 +38,6 @@ function CitiesPage() {
   const market = getMarket();
   return <PageShell eyebrow="Where Mova moves" title="Starting in Nigeria. Built to go further." description="Nigeria is Mova’s first launch market. Confirmed country and service availability will be published as rollout information is approved." variant="about"><div className="market-page-grid"><div className="public-info-card public-info-card--market"><CheckCircle size={24} weight="fill" /><h2>{market.country}</h2><p>First launch market · {market.currency}</p><strong>Launching first</strong></div><div className="market-page-note"><h2>Designed to expand</h2><p>No additional markets are announced on this site yet. Mova’s country and service content will grow through approved public configuration.</p><Link className="button button--secondary" href="/help">Visit Help</Link></div></div><div className="public-map-note"><span>Illustrative launch-market map</span><p>The Lagos/Nigeria visual is conceptual and does not show live Drivers, Riders, or fleet data.</p></div><Link className="button" href={getAppAcquisitionHref()}>Get Mova</Link></PageShell>;
 }
-function SignInPage() { return <PageShell eyebrow="Account access" title="Manage your Mova account in the app." description="A public web sign-in contract is not currently configured. Use the approved Mova app experience for account access." variant="safety"><Link className="button" href={getAppAcquisitionHref()}>Get Mova</Link><Link className="button button--secondary" href="/help">Visit Help</Link></PageShell>; }
-
 function PageShell({ eyebrow, title, description, variant, children }: { eyebrow: string; title: string; description: string; variant: PublicPageContent["variant"]; children?: React.ReactNode }) {
   return <main id="main-content" className={`public-page public-page--${variant}`}><Container><div className="public-page-hero"><div><p className="eyebrow">{eyebrow}</p><h1>{title}</h1><p className="public-page__description">{description}</p></div><PageVisual variant={variant} /></div>{children}<Link className="public-page__back" href="/"><ArrowLeft aria-hidden />Back to homepage</Link></Container></main>;
 }
@@ -51,6 +48,6 @@ function ContentPage({ page }: { page: PublicPageContent }) {
 }
 export default async function PublicPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params; if (!routeSlugs.includes(slug as RouteSlug)) notFound();
-  if (slug === "cities") return <CitiesPage />; if (slug === "signin") return <SignInPage />;
+  if (slug === "cities") return <CitiesPage />;
   return <ContentPage page={publicPages[slug]} />;
 }

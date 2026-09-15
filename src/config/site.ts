@@ -27,7 +27,7 @@ export const siteConfig = {
     { label: "About", href: "/about" },
     { label: "Help", href: "/help" },
   ],
-  actions: { signIn: "/signin", getMova: "/#get-mova", drive: "/drive", deliver: "/deliver", help: "/help" },
+  actions: { getMova: "/#get-mova", drive: "/drive", deliver: "/deliver", help: "/help" },
   markets: [{ code: "NG", country: "Nigeria", currency: "NGN", status: "launching", services: { ride: "enabled", drive: "enabled", deliver: "enabled" } }] satisfies PublicMarket[],
   defaultMarket: "NG",
   appStores: { apple: configuredAppleUrl, google: configuredGoogleUrl },

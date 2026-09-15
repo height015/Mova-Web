@@ -9,7 +9,7 @@ export function Header() {
   return <header className="site-header header-fidelity"><Container className="header-inner">
     <Link href="/" aria-label="Mova home"><BrandLogo /></Link>
     <nav className="desktop-nav" aria-label="Main navigation">{siteConfig.nav.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}</nav>
-    <div className="desktop-actions"><Button href={siteConfig.actions.signIn} variant="ghost">Sign in</Button><Button href={getAppAcquisitionHref()}>Get Mova</Button></div>
+    <div className="desktop-actions"><Button href={getAppAcquisitionHref()}>Get Mova</Button></div>
     <MobileNavigation />
   </Container></header>;
 }

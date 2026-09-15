@@ -233,6 +233,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .public-content-grid{grid-template-columns:1fr}
 }
 
+/* Keep the mobile/tablet navigation explicit and above every page layer. */
+@media (max-width:1000px){
+  .site-header .menu-trigger{display:flex;visibility:visible;opacity:1}
+  .site-header .mobile-menu{display:block;visibility:visible;opacity:1;z-index:100;background:#fff;color:var(--text-primary)}
+  .site-header .mobile-menu__top{display:flex;visibility:visible;opacity:1}
+  .site-header .mobile-menu nav{display:grid;visibility:visible;opacity:1;gap:0}
+  .site-header .mobile-menu nav a{display:block;visibility:visible;opacity:1;color:var(--text-primary);font-family:var(--font-jakarta),Arial,sans-serif;font-size:18px;line-height:24px;font-weight:600}
+  .site-header .mobile-menu__actions{display:grid;visibility:visible;opacity:1}
+}
+
 /* Product screens stay visible when viewport animation is unavailable. */
 .app-section .concept-screen{opacity:1;transform:none}
 .app-section .is-active .concept-screen{animation:concept-screen-enter .4s ease both}

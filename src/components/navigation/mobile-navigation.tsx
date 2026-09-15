@@ -24,7 +24,7 @@ export function MobileNavigation() {
     {open && <div className="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Main menu">
       <div className="mobile-menu__top"><span className="mobile-menu__label">Menu</span><button ref={closeRef} className="menu-trigger" type="button" aria-label="Close menu" onClick={() => setOpen(false)}><X size={25} weight="bold" /></button></div>
       <nav aria-label="Mobile navigation">{siteConfig.nav.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>)}</nav>
-      <div className="mobile-menu__actions"><Button href={getAppAcquisitionHref()}>Get Mova</Button><Button href={siteConfig.actions.signIn} variant="secondary">Sign in</Button></div>
+      <div className="mobile-menu__actions"><Button href={getAppAcquisitionHref()}>Get Mova</Button></div>
     </div>}
   </>;
 }
