@@ -14,6 +14,6 @@ export function Footer() {
     <div className="footer-grid"><div className="footer-brand"><Link href="/" aria-label="Mova home"><BrandLogo inverse /></Link><p>Your ride. Your price. Your choice.</p><p className="launch-note">Launching first in Nigeria.</p></div>
       {groups.map((group) => <div className="footer-group" key={group.title}><h2>{group.title}</h2>{group.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>)}
     </div>
-    <div className="footer-bottom"><p>© {new Date().getFullYear()} Mova. All rights reserved.</p><p>Built to move with you.</p></div>
+    <div className="footer-bottom"><p>© 2026 Mova. A product of EJ Tech. All rights reserved.</p><p>Built to move with you.</p></div>
   </Container></footer>;
 }
