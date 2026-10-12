@@ -2,7 +2,7 @@
 
 Phase 1 public marketing site for Mova, built with Next.js, React, TypeScript, and Tailwind CSS.
 
-Use Node.js 18.20.6 for local development and hosting. The project version is recorded in `.nvmrc` and `package.json`.
+Use Node.js 24.10.0 or newer for local development and hosting. The project version is recorded in `.nvmrc` and `package.json`.
 
 ```bash
 npm install
