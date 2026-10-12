@@ -1,9 +1,11 @@
+import path from "node:path";
 import type { NextConfig } from "next";
 
 const scriptSource = "'self' 'unsafe-inline' 'unsafe-eval'";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  outputFileTracingRoot: path.resolve(__dirname),
   images: { qualities: [75, 84] },
   async headers() {
     return [{ source: "/(.*)", headers: [
